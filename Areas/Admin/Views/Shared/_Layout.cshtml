@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+          integrity="sha384-9ndCyUaFPE7lA1zgSfxKk0JhA85H0W2P6ZaB81psO77Z4i9mj6Td2Rfi8Y6aibZ"
+          crossorigin="anonymous">
+
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">DAX FastFood</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">HEADER</li>
+                    <li><a href="@Url.Action("Index", "Employees")"><i class="fa fa-link"></i> <span>Quản lý người dùng</span></a></li>
+                    <li><a href="@Url.Action("Index", "Categories")"><i class="fa fa-link"></i> <span>Quản lý sản phẩm</span></a></li>
+                    <li><a href="@Url.Action("Index", "Products")"><i class="fa fa-link"></i> <span>Quản lý vai trò</span></a></li>
+       
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        @RenderBody()
+
+        @RenderSection("CreateCategory", required: false)
+        @RenderSection("EditCategory", required: false)
+        @RenderSection("DeleteCategory", required: false)
+        @RenderSection("DetailCategory", required: false)
+        @RenderSection("Scripts", required: false)
+
+        @RenderSection("CreateEmployee", required: false)
+        @RenderSection("EditEmployee", required: false)
+        @RenderSection("DeleteEmployee", required: false)
+        @RenderSection("DetailEmployee", required: false)
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3 text-center">
+        <div class="container">
+            <p class="mb-0">© 2024 DAX FastFood. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"
+            integrity="sha384-3gMZ3WazXyXkZSt4xmnQx3GiRVGP01zOeCp8LPXsBO8w6ObXxlDf6T1p0kpZzm3B"
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+            integrity="sha384-ppVxv1ZZiKD3CpqbvISx0pFj7+7+5IixNA3kI6PL6m2I6qb2gzU4aO2PBZ6K8Pls"
+            crossorigin="anonymous"></script>
+</body>
+</html>
