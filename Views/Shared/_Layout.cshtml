@@ -5,42 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DAX_FastFood</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DAX_FastFood.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Style.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DAX_FastFood</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <header class="text-white">
+        <div class="d-flex justify-content-between align-items-center bg-warning">
+            <div class="d-flex align-items-center gap-3">
             </div>
-        </nav>
+            <div class="d-flex align-items-center gap-3 mx-2 fw-bold">
+                <span class="text-danger">
+                    <img src="https://jollibee.com.vn/static/version1733414187/frontend/Jollibee/default/vi_VN/images/flag-vn.png"
+                         alt="Jollibee Logo" height="20"> VN
+                </span>
+                <span class="text-black">|</span>
+                <span class="text-black">
+                    <img src="https://jollibee.com.vn/static/version1733414187/frontend/Jollibee/default/vi_VN/images/flag-en.png"
+                         alt="Jollibee Logo" height="18"> EN
+                </span>
+                <span class="text-black mx-3">
+                    <i class="bi bi-geo-alt-fill"></i> Hồ Chí Minh
+                </span>
+                <a href="#" class="text-black text-decoration-none mx-2">Đăng ký / Đăng nhập</a>
+            </div>
+
+        </div>
+        <div class="px-5">
+
+            <div class="d-flex">
+                <div class="logo pe-5 py-1">
+                    <a href="#">
+                        <img src="https://jollibee.com.vn/static/version1733414187/frontend/Jollibee/default/vi_VN/images/logo.png"
+                             alt="Jollibee Logo" height="100" width="100">
+                    </a>
+                </div>
+                <ul class="d-flex list-unstyled mb-0">
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item active">TRANG CHỦ</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">VỀ JOLLIBEE</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">THỰC ĐƠN</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">KHUYẾN MÃI</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">DỊCH VỤ</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">TIN TỨC</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">CỬA HÀNG</a></li>
+                    <li class="pt-5 fw-bolder"><a href="#" class="p-3 nav-item">TUYỂN DỤNG</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <a href="#" class="btn btn-warning text-danger shadow p-3 rounded fw-bold rounded-pill px-4 py-2">PICK UP</a>
+                    <div class="text-end">
+                        <small class="rounded-pill p-1">
+                            <img src="https://jollibee.com.vn/media/wysiwyg/delivery-lg-rs.png" alt="Jollibee Logo" height="40">
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - DAX_FastFood - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
