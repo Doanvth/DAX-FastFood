@@ -236,7 +236,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasIndex("PaymentMethodId");
 
-                    b.ToTable("payments");
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.PaymentMethod", b =>
@@ -264,7 +264,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasKey("PaymentMethodId");
 
-                    b.ToTable("paymentsMethod");
+                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Product", b =>
@@ -307,7 +307,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("products");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Role", b =>
@@ -325,7 +325,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("roles");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Employee", b =>
