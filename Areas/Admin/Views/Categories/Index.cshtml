@@ -1,0 +1,144 @@
+﻿@model IEnumerable<DAX_FastFood.Areas.Admin.Models.Category>
+
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Category List</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="Create" class="btn btn-create">Create New</a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CategoryId" class="text-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.CategoryId" class="text-success">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="text-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<style>
+    /* Tùy chỉnh tiêu đề */
+    h1 {
+        font-family: 'Arial', sans-serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #343a40;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+
+    /* Nút Create New */
+    a.btn-create {
+        background: linear-gradient(to right, #28a745, #218838);
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    a.btn-create:hover {
+        background: linear-gradient(to right, #218838, #1e7e34);
+        color: #fff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+    }
+
+    /* Bảng Category */
+    .table {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th {
+        background: linear-gradient(to right, #007bff, #0056b3);
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .table td {
+        text-align: center;
+        padding: 10px;
+        font-size: 1rem;
+        color: #495057;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    /* Các liên kết trong bảng */
+    .table a {
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+    }
+
+    .table a.text-primary {
+        color: #007bff;
+    }
+
+    .table a.text-primary:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+    .table a.text-success {
+        color: #28a745;
+    }
+
+    .table a.text-success:hover {
+        color: #1e7e34;
+        text-decoration: underline;
+    }
+
+    .table a.text-danger {
+        color: #dc3545;
+    }
+
+    .table a.text-danger:hover {
+        color: #bd2130;
+        text-decoration: underline;
+    }
+
+ 
+
+  
+</style>

@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+<div class="container mt-5">
+    <h1 class="text-center">Chào mừng bạn đến với giao diện Admin!</h1>
+    <p class="text-center">Đây là trang quản trị của hệ thống. Bạn có thể quản lý các sản phẩm, người dùng, và các chức năng khác ở đây.</p>
+</div>
+<style>
+
+    /* Container chung */
+    .container {
+        background-color: #f8f9fa; /* Màu nền sáng cho trang */
+        padding: 40px;
+        border-radius: 8px; /* Bo tròn các góc */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm bóng cho container */
+        margin-top: 50px; /* Căn giữa trên */
+    }
+
+    /* Tiêu đề h1 */
+    h1 {
+        font-size: 3rem; /* Cỡ chữ lớn cho tiêu đề */
+        color: #007bff; /* Màu xanh dương cho tiêu đề */
+        font-weight: bold;
+        text-transform: uppercase; /* Chữ hoa toàn bộ */
+        letter-spacing: 1px; /* Kéo dãn khoảng cách giữa các chữ cái */
+        margin-bottom: 20px;
+    }
+
+    /* Đoạn văn bản chào mừng */
+    p {
+        font-size: 1.25rem; /* Cỡ chữ trung bình cho mô tả */
+        color: #495057; /* Màu chữ xám đậm */
+        line-height: 1.5; /* Cải thiện khoảng cách giữa các dòng */
+        margin-top: 10px;
+    }
+
+    /* Căn giữa cho nội dung */
+    .text-center {
+        text-align: center; /* Căn giữa văn bản */
+    }
+
+    /* Thêm hiệu ứng hover cho text */
+    h1:hover {
+        color: #0056b3; /* Thay đổi màu khi hover */
+        cursor: pointer; /* Thêm hiệu ứng con trỏ */
+        transition: color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+    }
+
+    /* Cải thiện kiểu cho link (nếu có) */
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        a:hover {
+            color: #0056b3; /* Màu khi hover vào link */
+            text-decoration: underline; /* Thêm gạch chân khi hover */
+        }
+
+    /* Thêm padding vào các thẻ p và h1 */
+    h1, p {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Tạo khoảng cách đẹp giữa các phần tử */
+    .container h1, .container p {
+        margin-bottom: 30px; /* Thêm khoảng cách dưới mỗi phần tử */
+    }
+
+</style>

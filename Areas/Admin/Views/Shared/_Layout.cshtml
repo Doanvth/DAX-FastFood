@@ -128,10 +128,11 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-           
+       
             <div class="ms-auto d-flex align-items-center">
                 <input class="form-control me-3" type="search" placeholder="Type here..." style="width: 200px;">
-               
+
+                </ul>
             </div>
         </div>
     </nav>
@@ -139,8 +140,27 @@
     <!-- Content Wrapper -->
     <div class="content-wrapper">
         @RenderBody()
+
+        @RenderSection("CreateCategory", required: false)
+        @RenderSection("EditCategory", required: false)
+        @RenderSection("DeleteCategory", required: false)
+        @RenderSection("DetailCategory", required: false)
+        @RenderSection("Scripts", required: false)
+
+        @RenderSection("CreateEmployee", required: false)
+        @RenderSection("EditEmployee", required: false)
+        @RenderSection("DeleteEmployee", required: false)
+        @RenderSection("DetailEmployee", required: false)
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3 text-center">
+        <div class="container">
+            <p class="mb-0">© 2024 DAX FastFood. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

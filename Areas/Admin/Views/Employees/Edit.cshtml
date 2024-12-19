@@ -1,0 +1,209 @@
+﻿@model DAX_FastFood.Areas.Admin.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeId" />
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" readonly />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" readonly />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" readonly />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleId" class="control-label"></label>
+                <select asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+</div>
+<style>
+    /* Card Styling */
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .card-header {
+        background: linear-gradient(to right, #0062cc, #0056b3);
+        color: #fff;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding: 15px;
+    }
+
+    .card-body {
+        background-color: #f8f9fa;
+        padding: 25px;
+    }
+
+    /* Form Styling */
+    form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            font-size: 1rem;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            width: 100%;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+            .form-group input:focus,
+            .form-group select:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+                outline: none;
+            }
+
+            .form-group input[readonly] {
+                background-color: #e9ecef;
+                cursor: not-allowed;
+            }
+
+        .form-group .text-danger {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+    /* Button Styling */
+    .btn-primary {
+        background: linear-gradient(to right, #4caf50, #2e7d32); /* Xanh lá cây */
+        color: #fff;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2e7d32, #1b5e20);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:active {
+            background: #1b5e20;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+        }
+
+    .btn-secondary {
+        background-color: #5a6268;
+        color: #fff;
+        text-decoration: none; /* Xóa gạch chân */
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #f57c00, #e65100); /* Cam đậm hơn */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            text-decoration: none; /* Đảm bảo vẫn không có gạch chân khi hover */
+        }
+
+        .btn-secondary:active {
+            background: #e65100; /* Màu cam đậm khi nhấn */
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            text-decoration: none; /* Đảm bảo vẫn không có gạch chân khi active */
+        }
+
+
+    /* Khoảng cách giữa các nút */
+    .form-group .btn + .btn {
+        margin-left: 15px;
+    }
+
+    /* Typography */
+    h1, h4 {
+        font-family: 'Arial', sans-serif;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    /* Overall Layout */
+    .row {
+        margin-top: 20px;
+    }
+
+    .alert-danger {
+        border-radius: 6px;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+</style>
