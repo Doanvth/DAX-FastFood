@@ -1,0 +1,167 @@
+.modal-dialog {
+    height: 700px;
+    width: 700px !important;
+}
+
+.modal-content {
+    height: 540px;
+    width: 602px !important;
+}
+
+.modal-logo {
+    background-color: #E31837;
+}
+
+.modal-logo .logo img {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    max-width: 90px;
+}
+
+.modal-title {
+    text-align: center;
+    background-color: #E31837;
+}
+
+.modal-title .spantitle {
+    font-size: 2em;
+    letter-spacing: 0.28px;
+    opacity: 1;
+    color: #ffff;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 0 !important;
+    background-color: #E31837;
+
+}
+
+.modal-body .form-login {
+    margin: 0 90px;
+    padding: 10px;
+}
+
+.modal-body .form-control {
+    height: 52px;
+    border-radius: 8px;
+    border: 1px solid #9e9e9e;
+}
+
+.modal-body .btn-tools {
+    background-color: #FFC522;
+    padding: 20px;
+}
+
+.btn-tools .btn-login {
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 8px;
+    color: white;
+    background-color: #E31837;
+    height: 52px;
+}
+
+.btn-tools .btn-login:hover {
+    color: white;
+    background-color: #bd142e;
+}
+
+.tool {
+    margin: 0 90px;
+    padding: 10px;
+}
+
+.tool .justify-content-center {
+    margin: 30px 0px 12px;
+}
+
+.custom-close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    background-color: #E31837;
+    border-radius: 50%;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1050;
+}
+
+.custom-close-btn::before,
+.custom-close-btn::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.custom-close-btn::before {
+    transform: rotate(45deg);
+}
+
+.custom-close-btn::after {
+    transform: rotate(-45deg);
+}
+
+
+
+
+@media (max-width: 745px) {
+    .modal-dialog {
+        height: auto;
+        width: 90% !important;
+        margin: 0 auto;
+    }
+
+    .modal-content {
+        height: auto;
+        width: 100% !important;
+    }
+
+    .modal-logo .logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .modal-title .spantitle {
+        font-size: 1.5em;
+    }
+
+    .modal-body .form-login {
+        margin: 0 20px;
+        padding: 5px;
+    }
+
+    .modal-body .form-control {
+        height: 45px;
+    }
+
+    .btn-tools .btn-login {
+        font-size: 1.2rem;
+        height: 45px;
+    }
+
+    .tool {
+        margin: 0 20px;
+    }
+
+    .custom-close-btn {
+        top: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .custom-close-btn::before,
+    .custom-close-btn::after {
+        width: 15px;
+    }
+}
