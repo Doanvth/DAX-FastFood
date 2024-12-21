@@ -1,0 +1,744 @@
+/* CSS Header */
+.nav-item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  border-radius: 7px 7px 0 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px 0px 0px;
+  padding: 5px 10px;
+}
+
+.nav-item:hover {
+  background-color: #fff;
+  color: #dc3545;
+}
+
+.nav-item.active {
+  background-color: #fff;
+  color: #dc3545;
+}
+
+.footer {
+  background-color: #dc3545;
+}
+
+.footer ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer p {
+  font-size: 14px;
+}
+
+.footer .container {
+  max-width: 1200px;
+}
+
+.copyright {
+  background-color: #d11633;
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 30px; 
+  }
+
+  .nav-item {
+    padding: 10px;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .footer .container {
+    padding: 20px;
+  }
+
+  .footer .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer ul {
+    padding-left: 0;
+  }
+
+  .footer p, .footer .info p {
+    font-size: 12px;
+  }
+
+  .footer .d-flex img {
+    height: 35px;
+  }
+
+  .footer .info {
+    margin-top: 15px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+
+.grid-container {
+  display: flex;
+  grid-template-columns: 1fr;
+
+}
+
+.col-lg-4 {
+  flex: 2;
+
+}
+
+.col-lg-8 {
+  flex: 5;
+  display: flex;
+
+}
+
+.grid-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+
+  background-color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  background: url(../Img/bg-wood.jpg) repeat center center;
+  background-size: cover;
+  margin-left: 4px;
+
+}
+
+.grid-item-jollibee {
+  background-color: #e31837;
+  padding: 71px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.title {
+  font-family: 'MergeBlack', sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  text-transform: uppercase;
+  color: #fff;
+  width: 80%;
+  margin-left: 20px;
+
+}
+
+.description {
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.intro {
+  max-width: 234px;
+  margin: auto;
+  text-align: center;
+}
+
+.logo-menu-wrapper img {
+  width: 70px;
+}
+
+
+.quad-menu {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  width: 100%;
+}
+
+.top-img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
+
+.top-img-wrapper img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 35px;
+}
+
+.bottom-img-wrapper {
+  background-color: #e31837;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  position: relative;
+  height: 70px;
+  text-align: center;
+  transform: translateY(33px);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.bottom-img-wrapper img {
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* PHẦN DỊCH VỤ */
+
+.DichVu {
+    background-image: url('../img/jollibee-kid-party-bg.png');
+    background-size: contain;
+    padding: 70px 20px;
+}
+
+
+.DichVu .title-wrapper {
+  text-align: center;
+}
+
+.DichVu .title-wrapper .title {
+  width: 100%;
+  font-size: 25px;
+  font-family: 'MergeBlack', sans-serif;
+  color: #e31837;
+  text-transform: uppercase;
+}
+
+.DichVu .title-wrapper .description {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'MergeBlack', sans-serif;
+  font-weight: bolder;
+  color: #000;
+}
+
+.DichVu .content-DichVu {
+  display: flex;
+  justify-content: space-between;
+  max-width: 850px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.DichVu-entry {
+  width: calc(25% - 20px);
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+
+
+.media {
+  width: 100%;
+  position: relative;
+}
+
+.media-center {
+  display: block;
+}
+
+.media-object {
+  width: 100%;
+  display: block;
+  min-height: 348px;
+  object-fit: contain;
+}
+
+.media-content {
+  text-align: center;
+
+}
+
+.h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.btn.action.primary {
+  background-color: #e31837;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 15px;
+  min-width: 160px;
+}
+
+
+@media (max-width: 992px) {
+  .DichVu .content-DichVu {
+    justify-content: space-around;
+  }
+
+  .DichVu-entry {
+    width: calc(25% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .DichVu .content-DichVu {
+    justify-content: center;
+  }
+
+  
+}
+
+
+
+/* PHẦN GIỚI THIỆU */
+/* Đảm bảo tỷ lệ cho phần tử .banner_welcome */
+.banner_welcome {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner_welcome:before {
+  content: "";
+  display: block;
+  padding-bottom: 191%;
+  /* Tạo tỷ lệ cho phần tử banner */
+}
+
+.group_content_banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 496px;
+  width: 90%;
+  text-align: center;
+}
+
+.content_banner_home {
+  padding: 20px;
+}
+
+/* Mobile styles */
+@media (min-width: 768px) {
+  .banner_welcome:before {
+    padding-bottom: 39.3%;
+    /* Điều chỉnh tỷ lệ khi màn hình lớn hơn 768px */
+  }
+}
+
+/* Đảm bảo button hiển thị đúng */
+.btn_banner {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e31837;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.title-About {
+  color: #e31837;
+  font-weight: bold;
+}
+
+.description-About {
+  color: black;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 64px 0 48px;
+}
+
+.btn_banner:hover {
+  background-color: #cc1617;
+  cursor: pointer;
+}
+
+
+
+/* PHẦN TÌM KIẾM CỬA HÀNG */
+.home-store-locator {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #ed7d22;
+  color: #fff;
+}
+
+.home-store-locator .title {
+/*  width: 100%;
+*/  margin-right: 19px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.home-store-locator #locator-submit-Search {
+  width: 30px;
+  margin: 12px 0;
+  border-radius: 8px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .home-store-locator #locator-submit-Search {
+    width: 30px;
+        margin-left: 19px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-store-locator .title {
+    margin-bottom: 0;
+    width: 25%;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-store-locator {
+    flex-direction: initial;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-store-locator .location-filter {
+    flex-direction: initial;
+    width: 78%;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-store-locator .location-filter select:first-child {
+    margin-right: 12px;
+  }
+}
+
+.home-store-locator .location-filter {
+  display: flex;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .home-store-locator .location-filter {
+    flex-direction: initial;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-store-locator {
+    flex-wrap: nowrap;
+    padding: 51px 46px 44px 46px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-store-locator .title {
+    margin-bottom: 0;
+    width: 25%;
+  }
+}
+
+@media (min-width: 1924px) {
+  .home-store-locator {
+    padding: 51px calc((100vw - 1850px) / 2) 44px;
+  }
+}
+
+.select-filter {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Các nút bấm */
+.btn-banner {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #ed7d22;
+  font-weight: bold;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.btn-banner:hover {
+  background-color: #ed7d22;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* PHẦN TIN TỨC */
+
+.TinTuc {
+  padding: 70px 20px;
+  background-color: #fff;
+}
+
+.TinTuc .title-wrapper-post .title-post {
+  font-size: 36px;
+  font-family: 'MergeBlack', sans-serif;
+  color: #e31837;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.TinTuc .content-post {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1000px;  gap: 20px; 
+}
+
+.TinTuc .post-entry {
+  width: 100%;
+  max-width: 300px; 
+  margin-bottom: 40px;
+  padding: 0 10px;
+  box-sizing: border-box; 
+}
+
+.TinTuc .post-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.TinTuc .post-title a {
+  font-weight: bold;
+  color: #333;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+
+.post-title{
+  margin-bottom: 10px;
+}
+
+.TinTuc .post-text-hld {
+  font-size: 14px;
+  color: #555;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.TinTuc .footer-wrapper {
+  text-align: center;
+}
+
+.TinTuc .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #e31837;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.TinTuc .btn:hover {
+  background-color: #c0132b;
+}
+
+@media only screen and (max-width: 1200px) {
+  .TinTuc .content-post {
+    gap: 20px;
+    justify-content: center; 
+  }
+
+  .TinTuc .post-entry {
+    width: 100%; 
+    max-width: 450px; 
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .TinTuc .content-post {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .TinTuc .post-entry {
+    max-width: 100%; 
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (mobile) */
+@media only screen and (max-width: 768px) {
+    .grid-item-jollibee{
+        display: none;
+    }
+    .container_fluid {
+        padding: 10px;
+    }
+    .bottom-img-wrapper {
+        background-color: #e31837;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        position: relative;
+        /* height: 70px; */
+        text-align: center;
+        transform: translateY(10px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .banner_welcome {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .group_content_banner {
+        padding: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .title-About {
+        font-size: 18px;
+    }
+
+    .description-About {
+        font-size: 14px;
+        margin: 20px 0;
+    }
+
+    .btn_banner {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .nav-item {
+        padding: 10px;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .col-lg-4 {
+        display: none;
+    }
+
+    .col-lg-8 {
+        display: flex;
+        flex-wrap: wrap;
+/*        gap: 10px;
+*/    }
+
+    .grid-item {
+        flex: 0 0 calc(50% - 10px); /* Mỗi phần tử chiếm 50% chiều rộng trừ khoảng cách */
+        margin: 5px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+    .DichVu .content-DichVu {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    
+
+    .home-store-locator .location-filter {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .select-filter {
+        width: 100%;
+    }
+
+    .TinTuc .content-post {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .TinTuc .post-entry {
+        width: 100%;
+    }
+
+}
+
+
+/* Responsive cho màn hình nhỏ hơn 768px (mobile) */
+@media only screen and (max-width: 768px) {
+    .col-lg-4 {
+        display: none !important;
+    }
+
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .grid-item {
+        flex: 0 0 calc(50% - 10px);
+        margin: 5px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+}
