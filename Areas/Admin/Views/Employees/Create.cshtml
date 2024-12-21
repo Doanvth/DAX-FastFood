@@ -1,9 +1,10 @@
-﻿@model DAX_FastFood.Areas.Admin.Models.Employee
+﻿@model DAX_FastFood.Models.Employee
 
 @{
     ViewData["Title"] = "Create";
 }
 
+<h1>Create</h1>
 
 @section CreateCategory{
 
@@ -15,36 +16,36 @@
                 <h4 class="mb-0">Employee Information</h4>
             </div>
             <div class="card-body">
-                <form asp-action="Create">
+        <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                     <!-- Full Name -->
                     <div class="form-group mb-3">
                         <label asp-for="FullName" class="form-label"></label>
                         <input asp-for="FullName" class="form-control" placeholder="Enter full name" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
-                    </div>
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
 
                     <!-- Email -->
                     <div class="form-group mb-3">
                         <label asp-for="Email" class="form-label"></label>
                         <input asp-for="Email" type="email" class="form-control" placeholder="Enter email" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
 
                     <!-- Password -->
                     <div class="form-group mb-3">
                         <label asp-for="Password" class="form-label"></label>
                         <input asp-for="Password" type="password" class="form-control" placeholder="Enter password" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
 
                     <!-- Phone Number -->
                     <div class="form-group mb-3">
                         <label asp-for="PhoneNumber" class="form-label"></label>
                         <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
 
                     <!-- Role -->
                     <div class="form-group mb-4">
@@ -53,16 +54,16 @@
                             <option value="">-- Select Role --</option>
                         </select>
                         <span asp-validation-for="RoleId" class="text-danger"></span>
-                    </div>
+            </div>
 
                     <!-- Buttons -->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="submit" class="btn btn-success me-2">Create</button>
                         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-                    </div>
-                </form>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
     </div>
 
 }
@@ -181,6 +182,6 @@
     .text-danger {
         font-size: 0.875rem;
         margin-top: 5px;
-    }
+}
 </style>
 

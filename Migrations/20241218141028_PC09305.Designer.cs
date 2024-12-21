@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAX_FastFood.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241213165404_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241218141028_PC09305")]
+    partial class PC09305
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,7 +239,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasIndex("PaymentMethodId");
 
-                    b.ToTable("payments");
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.PaymentMethod", b =>
@@ -267,7 +267,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasKey("PaymentMethodId");
 
-                    b.ToTable("paymentsMethod");
+                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Product", b =>
@@ -310,7 +310,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("products");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Role", b =>
@@ -328,7 +328,7 @@ namespace DAX_FastFood.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("roles");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("DAX_FastFood.Models.Employee", b =>

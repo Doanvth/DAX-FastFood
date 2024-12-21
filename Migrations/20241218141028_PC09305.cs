@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DAX_FastFood.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class PC09305 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,7 +43,7 @@ namespace DAX_FastFood.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "paymentsMethod",
+                name: "PaymentMethods",
                 columns: table => new
                 {
                     PaymentMethodId = table.Column<int>(type: "int", nullable: false)
@@ -54,11 +54,11 @@ namespace DAX_FastFood.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_paymentsMethod", x => x.PaymentMethodId);
+                    table.PrimaryKey("PK_PaymentMethods", x => x.PaymentMethodId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "roles",
+                name: "Roles",
                 columns: table => new
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false)
@@ -67,11 +67,11 @@ namespace DAX_FastFood.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_roles", x => x.RoleId);
+                    table.PrimaryKey("PK_Roles", x => x.RoleId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "payments",
+                name: "Payments",
                 columns: table => new
                 {
                     PaymentId = table.Column<int>(type: "int", nullable: false)
@@ -85,11 +85,11 @@ namespace DAX_FastFood.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_payments", x => x.PaymentId);
+                    table.PrimaryKey("PK_Payments", x => x.PaymentId);
                     table.ForeignKey(
-                        name: "FK_payments_paymentsMethod_PaymentMethodId",
+                        name: "FK_Payments_PaymentMethods_PaymentMethodId",
                         column: x => x.PaymentMethodId,
-                        principalTable: "paymentsMethod",
+                        principalTable: "PaymentMethods",
                         principalColumn: "PaymentMethodId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -110,9 +110,9 @@ namespace DAX_FastFood.Migrations
                 {
                     table.PrimaryKey("PK_Employees", x => x.EmployeeId);
                     table.ForeignKey(
-                        name: "FK_Employees_roles_RoleId",
+                        name: "FK_Employees_Roles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "roles",
+                        principalTable: "Roles",
                         principalColumn: "RoleId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -141,15 +141,15 @@ namespace DAX_FastFood.Migrations
                         principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_payments_PaymentId",
+                        name: "FK_Orders_Payments_PaymentId",
                         column: x => x.PaymentId,
-                        principalTable: "payments",
+                        principalTable: "Payments",
                         principalColumn: "PaymentId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "products",
+                name: "Products",
                 columns: table => new
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
@@ -164,15 +164,15 @@ namespace DAX_FastFood.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_products", x => x.ProductId);
+                    table.PrimaryKey("PK_Products", x => x.ProductId);
                     table.ForeignKey(
-                        name: "FK_products_Categories_CategoryId",
+                        name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_products_Employees_EmployeeId",
+                        name: "FK_Products_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "EmployeeId",
@@ -192,9 +192,9 @@ namespace DAX_FastFood.Migrations
                 {
                     table.PrimaryKey("PK_Feedbacks", x => x.FeedbackId);
                     table.ForeignKey(
-                        name: "FK_Feedbacks_products_ProductId",
+                        name: "FK_Feedbacks_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "products",
+                        principalTable: "Products",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -218,9 +218,9 @@ namespace DAX_FastFood.Migrations
                         principalColumn: "OrderId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_products_ProducId",
+                        name: "FK_OrderDetails_Products_ProducId",
                         column: x => x.ProducId,
-                        principalTable: "products",
+                        principalTable: "Products",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -252,18 +252,18 @@ namespace DAX_FastFood.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_payments_PaymentMethodId",
-                table: "payments",
+                name: "IX_Payments_PaymentMethodId",
+                table: "Payments",
                 column: "PaymentMethodId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_products_CategoryId",
-                table: "products",
+                name: "IX_Products_CategoryId",
+                table: "Products",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_products_EmployeeId",
-                table: "products",
+                name: "IX_Products_EmployeeId",
+                table: "Products",
                 column: "EmployeeId");
         }
 
@@ -280,13 +280,13 @@ namespace DAX_FastFood.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "products");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "payments");
+                name: "Payments");
 
             migrationBuilder.DropTable(
                 name: "Categories");
@@ -295,10 +295,10 @@ namespace DAX_FastFood.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "paymentsMethod");
+                name: "PaymentMethods");
 
             migrationBuilder.DropTable(
-                name: "roles");
+                name: "Roles");
         }
     }
 }

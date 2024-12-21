@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DAX_FastFood.Areas.Admin.Data;
-using DAX_FastFood.Areas.Admin.Models;
+using DAX_FastFood.Data;
+using DAX_FastFood.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DAX_FastFood.Areas.Admin.Controllers
 {
     [Area("Admin")]
+ 
     public class EmployeesController : Controller
     {
         private readonly AppDbContext_Admin _context;
@@ -66,7 +68,7 @@ namespace DAX_FastFood.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
            
       
-        }
+            }
 
         // GET: Admin/Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
