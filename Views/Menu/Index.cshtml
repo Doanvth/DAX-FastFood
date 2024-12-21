@@ -1,6 +1,14 @@
-﻿@section MenuPage{
-    <link rel="stylesheet" href="~/css/Menu_Page.css" />
+﻿@model IEnumerable<DAX_FastFood.Areas.Admin.Models.Product>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
 
+@section MenuPage{
+    <link rel="stylesheet" href="~/css/Menu_Page.css" />
     <main>
         <div class="container p-5" style="font-weight: bold;">
             <div class="productsList py-5">
@@ -8,64 +16,26 @@
                     <!-- Product 1 -->
                     <div class="col-md-4 p-0 mt-0">
                         <a href="">
-                            <div class="productItem px-5 py-4">
-                                <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/h/_/h_nh_m_n.jpg"
-                                     alt="Deal Hời Mới Bạn" class="img-fluid productImg">
-                                <h5 class="text-dark mt-3 productTTitle">Deal Hời Mới Bạn</h5>
-                                <p class="productPrice mb-4">78,000 ₫</p>
-                                <a class="btn productOder">Đặt Hàng</a>
-                            </div>
+                            @foreach(var item in Model)
+                            {
+                                <div class="productItem px-5 py-4">
+                                    <img src="@item.Image"
+                                         alt="Deal Hời Mới Bạn" class="img-fluid productImg">
+                                    <h5 class="text-dark mt-3 productTTitle">@item.ProductName</h5>
+                                    <p class="productPrice mb-4">@item.Price₫</p>
+                                    <a asp-action="Add" asp-controller="Cart" asp-route-Id="@item.ProductId" class="btn productOder">Đặt Hàng</a>
+                                </div>
+                            } 
                         </a>
                     </div>
-
-                    <div class="col-md-4 p-0 mt-0">
-                        <a href="">
-                            <div class="productItem px-5 py-4">
-                                <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/h/_/h_nh_m_n.jpg"
-                                     alt="Deal Hời Mới Bạn" class="img-fluid productImg">
-                                <h5 class="text-dark mt-3 productTTitle">Deal Hời Mới Bạn</h5>
-                                <p class="productPrice mb-4">78,000 ₫</p>
-                                <a class="btn productOder">Đặt Hàng</a>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-4 p-0 mt-0">
-                        <a href="">
-                            <div class="productItem px-5 py-4">
-                                <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/h/_/h_nh_m_n.jpg"
-                                     alt="Deal Hời Mới Bạn" class="img-fluid productImg">
-                                <h5 class="text-dark mt-3 productTTitle">Deal Hời Mới Bạn</h5>
-                                <p class="productPrice mb-4">78,000 ₫</p>
-                                <a class="btn productOder">Đặt Hàng</a>
-
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-4 p-0 mt-0">
-                        <a href="">
-                            <div class="productItem px-5 py-4">
-                                <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/h/_/h_nh_m_n.jpg"
-                                     alt="Deal Hời Mới Bạn" class="img-fluid productImg">
-                                <h5 class="text-dark mt-3 productTTitle">Deal Hời Mới Bạn</h5>
-                                <p class="productPrice mb-4">78,000 ₫</p>
-                                <a class="btn productOder">Đặt Hàng</a>
-                            </div>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
-
-
-
         <!-- gio hang -->
-        <div class="cart-btn-container" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+        <div class="cart-btn-container" >
             <button class="btn px-5 rounded-top cart-btn">
                 <i class="bi bi-cart2 fs-4"></i>
-                <span class="cart-text">0 ₫</span>
+                <a href="/Menu/Cart" class="cart-text text-white">0 ₫</a>
             </button>
         </div>
 
@@ -73,137 +43,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 }
-<!-- Offcanvas Giỏ Hàng -->
-<div class="offcanvas offcanvas-custom" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="cartOffcanvasLabel">Giỏ hàng của bạn</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <!-- Sản phẩm 1 -->
-        <div class="product-item">
-            <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/m/_/m_n_ngon_ph_i_th_-_1.png" alt="Product" class="product-image">
-            <div class="product-info">
-                <p class="fw-bold mb-1">DEAL HỜI MỜI BẠN</p>
-                <p class="text-muted small mb-1">1 x Miếng Gà Giòn Vui Vẻ + 0 ₫</p>
-                <div class="product-actions">
-                    <button class="btn-quantity">-</button>
-                    <span>1</span>
-                    <button class="btn-quantity">+</button>
-                </div>
-            </div>
-            <p class="fw-bold text-end">79,000 ₫</p>
-            <div class="product-actions">
-                <button class="btn-action">✏️</button>
-                <button class="btn-action btn-danger">🗑️</button>
-            </div>
-        </div>
 
-        <!-- Sản phẩm 2 -->
-        <div class="product-item">
-            <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/m/_/m_n_ngon_ph_i_th_-_1.png" alt="Product" class="product-image">
-            <div class="product-info">
-                <p class="fw-bold mb-1">COMBO MỘT MÌNH ĂN NGON</p>
-                <p class="text-muted small mb-1">1 x Miếng Gà Giòn Vui Vẻ + 0 ₫</p>
-                <div class="product-actions">
-                    <button class="btn-quantity">-</button>
-                    <span>1</span>
-                    <button class="btn-quantity">+</button>
-                </div>
-            </div>
-            <p class="fw-bold text-end">78,000 ₫</p>
-            <div class="product-actions">
-                <button class="btn-action">✏️</button>
-                <button class="btn-action btn-danger">🗑️</button>
-            </div>
-        </div>
 
-        <!-- Tổng cộng -->
-        <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-            <h5 class="mb-0">Tổng Cộng:</h5>
-            <h5 class="mb-0 text-danger">157,000 ₫</h5>
-        </div>
-
-        <!-- Nút Thanh Toán -->
-        <div class="d-grid mt-3">
-            <a href="/Payment/Address" class="btn btn-danger btn-lg">Thanh Toán</a>
-
-        </div>
-    </div>
-</div>
-
-<style>
-    /* Tùy chỉnh Offcanvas */
-    .offcanvas-custom {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 800px; /* Tăng chiều rộng */
-        max-height: 85%; /* Chiều cao tối đa */
-        border-radius: 15px; /* Bo góc */
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bóng đổ */
-        overflow: hidden; /* Ẩn phần thừa */
-    }
-
-    .offcanvas-header {
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        background-color: #ffc107; /* Màu nền vàng */
-    }
-
-    .offcanvas-body {
-        overflow-y: auto; /* Cuộn nội dung nếu quá nhiều */
-    }
-
-    .product-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        border-bottom: 1px dashed #ccc;
-        padding-bottom: 10px;
-    }
-
-    .product-image {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-
-    .product-info {
-        flex: 1;
-        margin-left: 15px;
-    }
-
-    .product-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-left: 20px; /* Thêm khoảng cách giữa giá và nút */
-    }
-
-    .btn-quantity {
-        border: none;
-        background-color: #f0f0f0;
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
-        text-align: center;
-        line-height: 30px;
-        cursor: pointer;
-    }
-
-    .btn-action {
-        background-color: #ffc107;
-        border: none;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-        .btn-action:hover {
-            opacity: 0.9;
-        }
-</style>

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<DAX_FastFood.Areas.Admin.Models.Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<div class="container mt-5">
+    <h1>Product List</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="Create" class="btn btn-create">Create New</a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <th>@Html.DisplayNameFor(model => model.Category)</th>           
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td><img src="@item.Image" alt="Product Image" style="width: 100px; height: auto;" /></td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category.CategoryName)</td>     
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="text-primary">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="text-success">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="text-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    /* Tiêu đề trang */
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Nút Create New */
+    .btn-create {
+        background-color: #28a745;
+        color: white;
+        padding: 8px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+    /* Bảng Product */
+    .table {
+        border-collapse: collapse;
+        margin-top: 20px;
+        width: 100%;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+            .table a:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+
+</style>
