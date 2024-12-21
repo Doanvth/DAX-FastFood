@@ -1,0 +1,237 @@
+﻿<style>
+    /* Step Progress Header */
+    .step-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 0;
+        gap: 20px;
+    }
+
+    .step {
+        position: relative;
+        flex: 1;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 15px;
+        background-color: #dc3545;
+        color: #fff;
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+        .step.active {
+            background-color: orange;
+            color: white;
+        }
+
+        .step.completed {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .step.completed .circle {
+                background-color: white;
+                color: #dc3545;
+                border: 2px solid #dc3545;
+            }
+
+        .step .circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: -18px;
+            left: calc(50% - 17.5px);
+            border: 2px solid black;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%);
+            width: 20%;
+            height: 2px;
+            background-color: white;
+            z-index: 0;
+        }
+
+    .divider {
+        border-top: 1px solid #ccc;
+        margin: 20px 0;
+    }
+
+    .btn-custom {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .note-box textarea {
+        resize: none;
+    }
+
+    .details-summary {
+        background-color: #f8f4e8;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+        .details-summary img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+    .order-summary {
+        background-color: #f8f4e8;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+        .order-summary h5 {
+            font-weight: bold;
+        }
+
+    .order-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px dashed #ccc;
+        padding: 10px 0;
+    }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item img {
+            width: 70px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+    .total-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #dc3545;
+    }
+
+    .total-text {
+        font-weight: bold;
+    }
+
+    .note {
+        font-style: italic;
+        color: #888;
+    }
+</style>
+
+<div class="container mt-4">
+    <!-- Step Progress -->
+    <div class="step-header">
+        <div class="step completed">
+            <div class="circle">✔</div>
+            THÔNG TIN KHÁCH HÀNG
+        </div>
+        <div class="step active">
+            <div class="circle">2</div>
+            THÔNG TIN ĐƠN HÀNG
+        </div>
+        <div class="step">
+            <div class="circle">3</div>
+            HOÀN TẤT THANH TOÁN
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+        <!-- Form Thông Tin -->
+        <div class="col-md-7">
+            <h4 class="mb-4">GIAO HÀNG ĐẾN</h4>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Tên *</label>
+                    <input type="text" class="form-control" placeholder="Nhập tên của bạn">
+                    <small class="text-danger">Đây là thông tin bắt buộc</small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Họ *</label>
+                    <input type="text" class="form-control" placeholder="Nhập họ của bạn">
+                    <small class="text-danger">Đây là thông tin bắt buộc</small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Số điện thoại *</label>
+                    <input type="tel" class="form-control" placeholder="Nhập số điện thoại">
+                    <small class="text-danger">Đây là thông tin bắt buộc</small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-control" placeholder="Nhập email (không bắt buộc)">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ghi chú</label>
+                    <textarea class="form-control" rows="4" placeholder="Nhập ghi chú"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <!-- Chi Tiết Đơn Hàng -->
+        <div class="col-md-5">
+            <div class="order-summary">
+                <h5 class="mb-4">CHI TIẾT ĐƠN HÀNG</h5>
+                <!-- Sản phẩm 1 -->
+                <div class="order-item">
+                    <div class="d-flex align-items-center">
+                        <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/m/_/m_n_ngon_ph_i_th_-_1.png" alt="Product">
+                        <div>
+                            <p class="fw-bold mb-0">COMBO MỘT MÌNH ĂN NGON</p>
+                            <small>x 1</small>
+                        </div>
+                    </div>
+                    <p class="fw-bold">+ 78,000 ₫</p>
+                </div>
+                <!-- Sản phẩm 2 -->
+                <div class="order-item">
+                    <div class="d-flex align-items-center">
+                        <img src="https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/m/_/m_n_ngon_ph_i_th_-_1.png" alt="Product">
+                        <div>
+                            <p class="fw-bold mb-0">DEAL HỜI MỜI BẠN</p>
+                            <small>x 1</small>
+                        </div>
+                    </div>
+                    <p class="fw-bold">+ 79,000 ₫</p>
+                </div>
+                <!-- Tổng Cộng -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <p class="total-text">Tổng Cộng:</p>
+                    <p class="total-price">157,000 ₫</p>
+                </div>
+                <p class="note mt-2 text-danger">Đã bao gồm giá thuế VAT 8%</p>
+                <!-- Lựa chọn thêm -->
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="plasticOption">
+                    <label class="form-check-label" for="plasticOption">
+                        <b>Lấy dụng cụ ăn uống nhựa</b>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút Điều Hướng -->
+    <div class="d-flex justify-content-star mt-4 gap-2 mb-3">
+        <a href="/Menu/Index" class="btn btn-secondary btn-custom">Trở Lại</a>
+        <a href="/Payment/Pay" class="btn btn-danger btn-custom">Tiếp Theo</a>
+    </div>
+</div>
