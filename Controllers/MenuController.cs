@@ -16,10 +16,7 @@ namespace DAX_FastFood.Controllers
         {
             return View(await _context.Products.ToListAsync());
         }
-        public  IActionResult Cart()
-        {
-            return View();
-        }
+       
 
 
     }

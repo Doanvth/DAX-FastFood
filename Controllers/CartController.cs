@@ -18,7 +18,7 @@ namespace ThanhToanSP.Controllers
         {
             List<CartItemModel> cartItems = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
 
-            CartItemViewModel cartVM = new()
+            var cartVM = new CartItemViewModel
             {
                 CartItems = cartItems,
                 GrandTotal = cartItems.Sum(x => x.Quantity * x.Price)
@@ -47,7 +47,8 @@ namespace ThanhToanSP.Controllers
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
                     Price = product.Price,
-                    Quantity = 1
+                    Quantity = 1,
+                    Image = product.Image // Đảm bảo `product.Image` có giá trị
                 });
             }
             else
@@ -65,6 +66,71 @@ namespace ThanhToanSP.Controllers
             }
             return Redirect(referer);
         }
+
+        public IActionResult IncreaseQuantity(int id)
+        {
+            // Lấy giỏ hàng từ Session
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+
+            // Tìm sản phẩm trong giỏ hàng
+            var cartItem = cart.FirstOrDefault(c => c.ProductId == id);
+
+            if (cartItem != null)
+            {
+                cartItem.Quantity += 1; // Tăng số lượng sản phẩm
+            }
+
+            // Lưu lại giỏ hàng vào Session
+            HttpContext.Session.SetJson("Cart", cart);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DecreaseQuantity(int id)
+        {
+            // Lấy giỏ hàng từ Session
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+
+            // Tìm sản phẩm trong giỏ hàng
+            var cartItem = cart.FirstOrDefault(c => c.ProductId == id);
+
+            if (cartItem != null)
+            {
+                cartItem.Quantity -= 1; // Giảm số lượng sản phẩm
+
+                // Nếu số lượng <= 0, xóa sản phẩm khỏi giỏ hàng
+                if (cartItem.Quantity <= 0)
+                {
+                    cart.Remove(cartItem);
+                }
+            }
+
+            // Lưu lại giỏ hàng vào Session
+            HttpContext.Session.SetJson("Cart", cart);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult Remove(int id)
+        {
+            // Lấy giỏ hàng từ Session
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+
+            // Tìm sản phẩm trong giỏ hàng
+            var cartItem = cart.FirstOrDefault(c => c.ProductId == id);
+
+            if (cartItem != null)
+            {
+                cart.Remove(cartItem); // Xóa sản phẩm khỏi giỏ hàng
+            }
+
+            // Lưu lại giỏ hàng vào Session
+            HttpContext.Session.SetJson("Cart", cart);
+
+            TempData["Success"] = "Sản phẩm đã được xóa khỏi giỏ hàng!";
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }

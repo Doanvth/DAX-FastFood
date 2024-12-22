@@ -1,7 +1,221 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model DAX_FastFood.ViewModels.CartItemViewModel
 
-<h1>Index</h1>
+<div class="container px-4 mt-4 mb-5">
+    <!-- Tiêu đề -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="text-center fw-bold text-danger">Giỏ Hàng Của Tôi</h2>
+        </div>
+    </div>
+    @if (Model != null && Model.CartItems != null && Model.CartItems.Count > 0)
+    {
+        foreach (var item in Model.CartItems)
+        {
+            <!-- Danh sách sản phẩm -->
+            <div class="row mb-3">
+                <div class="col-12 border-bottom pb-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <img src="@item.Image" alt="Product" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
+                        <div class="ms-3 flex-grow-1">
+                            <p class="fw-bold mb-1">@item.ProductName</p>
+                            <p class="text-muted small mb-1">1 x @item.ProductName + @item.Price ₫</p>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-outline-secondary btn-sm me-2"
+                                        onclick="location.href='/Cart/DecreaseQuantity/@item.ProductId'">
+                                    -
+                                </button>
+                                <input type="text" class="form-control text-center mx-2" style="width: 50px;" value="@item.Quantity" readonly>
+                                <button class="btn btn-outline-secondary btn-sm ms-2"
+                                        onclick="location.href='/Cart/IncreaseQuantity/@item.ProductId'">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <p class="fw-bold mb-0">@item.Price ₫</p>
+                        </div>
+                        <div class="ms-3">
+                            <button class="btn btn-warning btn-sm me-2">✏️</button>
+                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@item.ProductId">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12 text-center text-muted">
+            <p>Giỏ hàng của bạn trống.</p>
+        </div>
+    }
+
+    <!-- Tổng cộng -->
+    <div class="row">
+        <div class="col-12 total-container">
+            <h5>Tổng Cộng:</h5>
+            <h5 class="text-danger fw-bold">@Model.GrandTotal ₫</h5>
+        </div>
+    </div>
+
+    <!-- Nút Thanh Toán -->
+    <div class="row mt-3">
+        <div class="col-12 checkout-btn-container">
+            <a href="/Payment/Address" class="btn btn-danger btn-lg checkout-btn">Thanh Toán</a>
+        </div>
+    </div>
+
+    @* Modal Xóa *@
+    @if (Model != null && Model.CartItems != null && Model.CartItems.Count > 0)
+    {
+        foreach (var item in Model.CartItems)
+        {
+            <div class="modal fade" id="confirmDeleteModal-@item.ProductId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <!-- Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title fw-bold text-danger">Xác Nhận Xóa</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Body -->
+                        <div class="modal-body text-center">
+                            Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?
+                        </div>
+                        <!-- Footer -->
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-warning fw-bold" data-bs-dismiss="modal">HỦY</button>
+                            <a href="/Cart/Remove/@item.ProductId" class="btn btn-danger fw-bold">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<style>
+    .product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 10px;
+    }
+
+    .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .product-info {
+        flex: 1;
+        margin-left: 15px;
+    }
+
+    .product-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 20px;
+    }
+
+    .btn-quantity {
+        border: none;
+        background-color: #f0f0f0;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+
+    .btn-action {
+        background-color: #ffc107;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn-action:hover {
+            opacity: 0.9;
+        }
+
+    .total-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+        .total-container h5 {
+            margin: 0;
+            margin-right: 10px;
+        }
+
+    .checkout-btn-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .modal-header {
+        background-color: transparent !important; /* Đặt nền trong suốt */
+        border-bottom: none !important; /* Loại bỏ đường viền dưới nếu có */
+    }
+
+    .modal-title {
+        background-color: transparent !important; /* Loại bỏ nền chữ */
+        padding: 0 !important; /* Đảm bảo không có padding */
+        display: inline-block; /* Đảm bảo chỉ áp dụng cho chữ */
+    }
+
+    .modal-body {
+        padding: 20px !important;
+        background-color: transparent !important;
+    }
+
+</style>
+
+<script>
+    let productIdToDelete = null;
+
+    // Hàm đặt ID sản phẩm cần xóa
+    function setDeleteProductId(productId) {
+        productIdToDelete = productId;
+    }
+
+    // Hàm xử lý xóa sản phẩm
+    function deleteProduct() {
+        if (productIdToDelete) {
+            // Gửi yêu cầu xóa đến server bằng Fetch API
+            fetch(`/Cart/Remove/${productIdToDelete}`, {
+                method: 'POST', // Hoặc 'DELETE' tùy thuộc vào API của bạn
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Reload lại trang hoặc cập nhật giỏ hàng
+                        alert("Sản phẩm đã được xóa thành công!");
+                        location.reload(); // Reload lại trang để cập nhật giỏ hàng
+                    } else {
+                        alert("Xóa sản phẩm thất bại. Vui lòng thử lại!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Đã xảy ra lỗi:", error);
+                    alert("Xóa sản phẩm thất bại. Vui lòng thử lại!");
+                });
+        }
+    }
+</script>
+
+
+
 
